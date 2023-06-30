@@ -1,0 +1,9 @@
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 5%;
+}
+
+.personal-info {
+    margin-left: 16px;
+}
