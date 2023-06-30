@@ -8,6 +8,8 @@ import ProjectCard from "@/components/ProjectCard.astro";
 import Link from "@/components/shared/Link.astro";
 import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
 
+import "../styles/index.css";
+
 import presentation from "@/data/presentation";
 import projects from "@/data/projects";
 
@@ -17,12 +19,29 @@ const posts = await getCollection("posts");
 <Layout>
   <main class="flex flex-col gap-20">
     <article class="flex flex-col gap-8">
-      <h1 class="text-3xl text-neutral-100">{presentation.title}</h1>
-      <h2
-        class="max-w-[60ch] leading-6"
-        set:html={convertAsteriskToStrongTag(presentation.description)}
-      />
-      <SocialLinks />
+      <div class="flex">
+        <img src="../../public/avatar.jpeg" alt="My Avatar" class="avatar">
+        <div class="personal-info">
+          <h1 class="text-xl text-neutral-100">{presentation.title}</h1>
+          <h2 class="max-w-[60ch] leading-6" set:html={convertAsteriskToStrongTag(presentation.description)}></h2>
+        </div>
+      </div>
+    </article>
+
+    <article class="flex flex-col gap-8">
+      <header class="flex w-full flex-row justify-between gap-2">
+        <h3 class="text-lg text-neutral-100">
+          Support Plans ({projects.length})
+        </h3>
+      </header>
+      {projects.length === 0 && <p>Oops, no support plan yet...</p>}
+
+      <section class="flex flex-col gap-4">
+        {
+            projects.length !== 0 &&
+            projects.map((project) => <ProjectCard {...project} />)
+        }
+      </section>
     </article>
 
     <article class="flex flex-col gap-8">
@@ -30,7 +49,7 @@ const posts = await getCollection("posts");
         <h3 class="text-lg text-neutral-100">Latest posts</h3>
         <Link href="/posts" label="See all posts" isUnderline target="_self" />
       </header>
-      {posts.length === 0 && <p>Soon, stay connected 👀...</p>}
+      {posts.length === 0 && <p>Oops, no post yet...</p>}
 
       <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
         {
@@ -50,33 +69,15 @@ const posts = await getCollection("posts");
     </article>
 
     <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">
-          Selected projects ({projects.length})
-        </h3>
-      </header>
-      {projects.length === 0 && <p>Oops, I must work^^^^^</p>}
+      <hr class="border-neutral-100 border-dashed">
 
-      <section class="flex flex-col gap-4">
-        {
-          projects.length !== 0 &&
-            projects.map((project) => <ProjectCard {...project} />)
-        }
-      </section>
+      <div class="flex flex-row justify-between">
+        <div class="flex flex-col">
+          <h3 class="text-lg text-neutral-100">Contact Me</h3>
+          <br>
+          <p><a href="mailto:your-email@example.com">{presentation.mail}</a></p>
+        </div>
     </article>
 
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Get in touch</h3>
-      </header>
-      <p>
-        Email me at <Link
-          href={`mailto:${presentation.mail}`}
-          label={presentation.mail}
-        /> or follow me via my social links.
-      </p>
-
-      <SocialLinks />
-    </article>
   </main>
 </Layout>
