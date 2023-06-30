@@ -4,6 +4,8 @@ import BlurCircle from "@/components/shared/BlurCircle.astro";
 import theme from "@/data/theme";
 import SEOTags from "@/components/seo/SEOTags.astro";
 
+import { Analytics } from '@vercel/analytics/react';
+
 import "@fontsource/raleway";
 import "@/styles/tailwind.css";
 import "@/styles/post.css";
@@ -31,5 +33,6 @@ const { title } = Astro.props;
         font-family: "Raleway", serif;
       }
     </style>
+    <Analytics />
   </body>
 </html>
