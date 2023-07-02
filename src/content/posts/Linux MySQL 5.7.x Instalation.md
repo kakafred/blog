@@ -1,8 +1,8 @@
 ---
 title: "Linux MySQL 5.7.x Installation"
 publishedAt: 2023-06-30
-description: "Tutorial for Installing MySQL 5.7.x in CentOS"
-slug: "Linux"
+description: "Tutorial for installing MySQL 5.7.x in CentOS Linux operation system"
+slug: "1f3cb6e0-d5ef-493d-85ca-8aeec9c89d79"
 isPublish: true
 ---
 

@@ -2,7 +2,7 @@
 title: "AWS EC2 Instance Auto-tagging"
 publishedAt: 2023-06-30
 description: "Automatically tag AWS EC2 instances as they launch to precisely identify target costs"
-slug: "AWS"
+slug: "144f41b4-834b-46ef-bebe-1da73e225905"
 isPublish: true
 ---
 
