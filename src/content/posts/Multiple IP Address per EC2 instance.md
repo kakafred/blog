@@ -8,7 +8,7 @@ isPublish: true
 
 ### The scenario
 
-One of my cases, a compnay asked for my assistance with an AWS-related situation.
+One  of my cases, a compnay asked for my assistance with an AWS-related situation.
 
 "Customers need multiple public IPs to support domain name access, and only set the EC2 instance network card and private IP when NLB and GA are not used."
 
